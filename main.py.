@@ -8,8 +8,10 @@ from telegram.ext import (
 )
 
 logging.basicConfig(level=logging.INFO)
-
 TOKEN = os.getenv("BOT_TOKEN")
+
+if not TOKEN:
+    raise ValueError("Не найден BOT_TOKEN!")
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
